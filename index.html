@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html ng-app="tetrisApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tetris Neo+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body ng-controller="MainController as vm" ng-class="vm.theme">
+
+<div class="frame">
+  <header class="topbar glass">
+    <div class="logo">TETRIS NEO+</div>
+    <div class="actions">
+      <button ng-click="vm.toggleTheme()">{{vm.theme==='dark'?'☀️':'🌙'}}</button>
+      <button ng-click="vm.toggleSound()">{{vm.soundOn?'🔊':'🔈'}}</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="board-wrap glass">
+      <div id="board" class="board" tabindex="0"></div>
+      <div id="overlay" class="overlay glass">
+        <div id="overlay-text"></div>
+        <button id="overlay-button" class="btn-primary">Start</button>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="panel glass">
+        <h3>Next</h3>
+        <div id="next" class="mini"></div>
+      </div>
+
+      <div class="panel glass stats">
+        <p>Score <span id="score">0</span></p>
+        <p>Level <span id="level">1</span></p>
+        <p>Lines <span id="lines">0</span></p>
+      </div>
+
+      <div class="panel glass">
+        <h3>Controls</h3>
+        <ul>
+          <li>← → Move</li>
+          <li>↑ Rotate</li>
+          <li>↓ Soft drop</li>
+          <li>Space Hard drop</li>
+          <li>P Pause</li>
+          <li>Esc Quit</li>
+        </ul>
+      </div>
+
+      <div class="panel glass">
+        <h3>Menu</h3>
+        <button id="btn-play" class="btn-primary">Play</button>
+        <button id="btn-pause" class="btn-secondary">Pause / Resume</button>
+        <button id="btn-quit" class="btn-danger">Quit</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer glass">Enhanced graphics • Glow effects • Smooth transitions</footer>
+</div>
+
+<script src="tetris.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
